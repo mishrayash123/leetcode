@@ -1,13 +1,14 @@
 class Solution {
 public:
+    long s=0;
     int reverse(int x) {
-         int res = 0;
-        while (x!=0){
-            if (x > 0 && res > (INT_MAX - x % 10) / 10) return 0;
-            if (x < 0 && res < (INT_MIN - x % 10) / 10) return 0;
-            res = res * 10 + x % 10;
-            x /= 10;
+           while(x!=0){
+    s=s*10+x%10;
+    x=x/10;
+}
+        if(s<INT_MIN || s>INT_MAX){
+            return 0;
         }
-        return res;
+        return int(s); 
     }
 };
